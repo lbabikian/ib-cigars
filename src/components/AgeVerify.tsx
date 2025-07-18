@@ -8,13 +8,13 @@ export default function AgeVerify({ children }: { children: ReactNode }) {
   const pathname   = usePathname();   /* needed for 404 bypass the gate */
   const router     = useRouter();
 
-  if (pathname === '/404') {
-    return <>{children}</>;
-  }
-
   const [isVerified, setIsVerified]   = useState(false);
   const [checked,     setChecked]     = useState(false);
   const [redirecting, setRedirecting] = useState(false);
+
+    if (pathname === '/404') {
+    return <>{children}</>;
+  }
 
   useEffect(() => {
     const verified = localStorage.getItem('is21Verified');
