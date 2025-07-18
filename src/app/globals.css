@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F9F5EC;       /* ivoryCream */
+  --foreground: #0E0E0E;       /* deepCharcoal */
+  --accent: #C8922C;           /* richGold */
+  --text-muted: #3B3B3B;       /* shadowGray */
+  --font-sans: 'Playfair Display', serif;
+}
+
+/* if user has dark mode, auto swap */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0E0E0E;    /* flip bg&fg */
+    --foreground: #F9F5EC;    
+    --accent: #C8922C;        /* keep gold */
+    --text-muted: #BBBBBB;    /* lighter gray */
+  }
+}
+
+body {
+  @apply bg-[var(--background)] text-[var(--foreground)] font-sans;
+}
