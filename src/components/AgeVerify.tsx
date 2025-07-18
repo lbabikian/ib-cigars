@@ -12,15 +12,15 @@ export default function AgeVerify({ children }: { children: ReactNode }) {
   const [checked,     setChecked]     = useState(false);
   const [redirecting, setRedirecting] = useState(false);
 
-    if (pathname === '/404') {
-    return <>{children}</>;
-  }
-
   useEffect(() => {
     const verified = localStorage.getItem('is21Verified');
     if (verified === 'true') setIsVerified(true);
     setChecked(true);
   }, []);
+
+  if (pathname === '/404') {
+    return <>{children}</>;
+  }
 
   /*  handlers  */
   const handleAccept = () => {
